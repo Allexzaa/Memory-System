@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://api.iconify.design/material-symbols:psychology.svg?color=%234285F4" width="80" height="80" />
+<img src="./logo.png" alt="Claude Code Memory System Logo" width="180" />
 
 # Claude Code Memory System
 
