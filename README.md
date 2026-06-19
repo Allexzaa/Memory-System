@@ -2,9 +2,6 @@
 
 <img src="./logo.png" alt="Claude Code Memory System Logo" width="380" />
 
-<br />
-
-<img src="./title.png" alt="Claude Code Memory System" width="640" />
 
 **Persistent, structured memory for Claude Code — survives session resets and auto-compact.**
 
