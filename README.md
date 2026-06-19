@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./logo.png" alt="Claude Code Memory System Logo" width="300" />
+<img src="./logo.png" alt="Claude Code Memory System Logo" width="380" />
 
 # Claude Code Memory System
 
