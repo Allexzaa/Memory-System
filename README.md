@@ -1,11 +1,24 @@
-# Memory System Setup Guide
+<div align="center">
 
-A persistent memory system for Claude Code that survives session resets and auto-compact.
-Works on any project. Takes about 10 minutes to set up on a new project.
+<img src="https://api.iconify.design/material-symbols:psychology.svg?color=%234285F4" width="80" height="80" />
+
+# Claude Code Memory System
+
+**Persistent, structured memory for Claude Code — survives session resets and auto-compact.**
+
+<br />
+
+![Setup](https://img.shields.io/badge/setup-~10_minutes-4285F4?style=flat-square)
+![Compatible](https://img.shields.io/badge/Claude_Code-compatible-7B2FBE?style=flat-square)
+![Projects](https://img.shields.io/badge/any_project-no_lock--in-34A853?style=flat-square)
+
+</div>
+
+<br />
 
 ---
 
-## What this system does
+## <img src="https://api.iconify.design/material-symbols:lightbulb.svg?color=%23F4B400" width="22" align="center" /> &nbsp; What this system does
 
 Claude Code forgets everything when a session ends. This system gives it structured,
 permanent memory across sessions — what was decided, what failed, what the architecture
@@ -14,10 +27,10 @@ start and writes to them mid-session as things happen.
 
 ---
 
-## Files included
+## <img src="https://api.iconify.design/material-symbols:folder-open.svg?color=%234285F4" width="22" align="center" /> &nbsp; Files included
 
 | File | What it is | You edit it? |
-|---|---|---|
+| --- | --- | --- |
 | `CLAUDE.md` | Project constitution — rules, stack, palette | Once at setup, rarely after |
 | `PROJECT_INIT.md` | One-time initialization prompt | Paste into Claude Code once, then never again |
 | `INIT_PROMPT.md` | Session-start confirmation for sessions 2+ | Never — Claude uses it automatically |
@@ -32,23 +45,31 @@ start and writes to them mid-session as things happen.
 
 ---
 
-## Setup — 3 steps
+## <img src="https://api.iconify.design/material-symbols:rocket-launch.svg?color=%2334A853" width="22" align="center" /> &nbsp; Setup — 3 steps
 
-### Step 1 — Copy files into your project
-Drop the entire folder contents into your project root. The `.claude/` folder goes
-at the root level alongside your `src/` or other project folders.
+<br />
 
-### Step 2 — Add STATE.md to .gitignore
+**<img src="https://api.iconify.design/material-symbols:looks-one.svg?color=%234285F4" width="20" align="center" /> &nbsp; Copy files into your project**
+
+Drop the entire folder contents into your project root. The `.claude/` folder goes at the root level alongside your `src/` or other project folders.
+
+<br />
+
+**<img src="https://api.iconify.design/material-symbols:looks-two.svg?color=%234285F4" width="20" align="center" /> &nbsp; Add STATE.md to .gitignore**
+
 STATE.md is personal session state — not team-shared. Add this line to `.gitignore`:
+
 ```
 .claude/STATE.md
 ```
-Commit everything else. ARCH files, DECISIONS.md, FAILURES.md, and Docs/ are
-project knowledge that should be versioned and shared with your team.
 
-### Step 3 — Run PROJECT_INIT.md in Claude Code
-Open your project in VS Code, launch Claude Code, and paste the full contents
-of `PROJECT_INIT.md` into the chat.
+Commit everything else. ARCH files, DECISIONS.md, FAILURES.md, and Docs/ are project knowledge that should be versioned and shared with your team.
+
+<br />
+
+**<img src="https://api.iconify.design/material-symbols:looks-3.svg?color=%234285F4" width="20" align="center" /> &nbsp; Run PROJECT_INIT.md in Claude Code**
+
+Open your project in VS Code, launch Claude Code, and paste the full contents of `PROJECT_INIT.md` into the chat.
 
 Claude will:
 1. Scan your existing codebase
@@ -57,66 +78,50 @@ Claude will:
 4. Show you each file for approval before moving on
 5. Confirm when initialization is complete
 
-This takes about 10 minutes. After it completes, delete or ignore PROJECT_INIT.md —
-you will never use it again.
+> **Note:** This takes about 10 minutes. After it completes, delete or ignore `PROJECT_INIT.md` — you will never use it again.
 
 ---
 
-## Daily use
+## <img src="https://api.iconify.design/material-symbols:today.svg?color=%23EA4335" width="22" align="center" /> &nbsp; Daily use
 
-**Starting a session:**
-Nothing to do. Claude Code reads CLAUDE.md automatically. Claude orients itself
-from STATE.md and the index sections of DECISIONS.md and FAILURES.md.
+<img src="https://api.iconify.design/material-symbols:play-circle.svg?color=%2334A853" width="18" align="center" /> &nbsp; **Starting a session** — Nothing to do. Claude Code reads `CLAUDE.md` automatically. Claude orients itself from `STATE.md` and the index sections of `DECISIONS.md` and `FAILURES.md`.
 
-**During a session:**
-Claude writes to memory files as things happen — you do not need to prompt it.
-Decisions, failures, and architecture changes are logged mid-session automatically.
+<img src="https://api.iconify.design/material-symbols:sync.svg?color=%234285F4" width="18" align="center" /> &nbsp; **During a session** — Claude writes to memory files as things happen. Decisions, failures, and architecture changes are logged mid-session automatically. You do not need to prompt it.
 
-**Ending a session:**
-Type `/memory-update` in Claude Code. Claude cleans up STATE.md and confirms
-what was logged. Takes under 60 seconds.
+<img src="https://api.iconify.design/material-symbols:stop-circle.svg?color=%23EA4335" width="18" align="center" /> &nbsp; **Ending a session** — Type `/memory-update` in Claude Code. Claude cleans up `STATE.md` and confirms what was logged. Takes under 60 seconds.
 
-**If Claude seems to have forgotten something:**
-Ask: "Check DECISIONS.md / FAILURES.md / ARCH-backend.md for [topic]."
-Claude will load the relevant file and find it.
+<img src="https://api.iconify.design/material-symbols:manage-search.svg?color=%23F4B400" width="18" align="center" /> &nbsp; **If Claude forgot something** — Ask: `"Check DECISIONS.md / FAILURES.md / ARCH-backend.md for [topic]."` Claude will load the relevant file and find it.
 
 ---
 
-## Feature build workflow
+## <img src="https://api.iconify.design/material-symbols:construction.svg?color=%23F4B400" width="22" align="center" /> &nbsp; Feature build workflow
 
 Every feature follows three approval gates — Claude cannot advance without your sign-off:
 
 ```
-1. Spec created → your approval
-2. Phase plan created → your approval
-3. Build starts → phase by phase, tests required before each phase is marked Done
+Spec created  →  your approval  →  Phase plan created  →  your approval  →  Build (phase by phase)
 ```
 
-Claude creates spec files in `Docs/F[NNN]-[slug]-spec.md` and phase plans in
-`Docs/F[NNN]-[slug]-phases.md`. Build_Plan.md tracks status of all features.
+Claude creates spec files in `Docs/F[NNN]-[slug]-spec.md` and phase plans in `Docs/F[NNN]-[slug]-phases.md`. `Build_Plan.md` tracks the status of all features.
 
 ---
 
-## Troubleshooting
+## <img src="https://api.iconify.design/material-symbols:build.svg?color=%23EA4335" width="22" align="center" /> &nbsp; Troubleshooting
 
-**Claude is filling in placeholder values instead of real content.**
-Stop it. Tell Claude: "Do not invent content. Write [not yet determined] for anything
-you cannot derive from the codebase, and ask me."
+<img src="https://api.iconify.design/material-symbols:warning.svg?color=%23F4B400" width="16" align="center" /> &nbsp; **Claude is filling in placeholder values instead of real content.**  
+Tell Claude: `"Do not invent content. Write [not yet determined] for anything you cannot derive from the codebase, and ask me."`
 
-**DECISIONS.md or FAILURES.md is getting long and slow to scan.**
-The Index section at the top should stay under 30 lines for most projects. If it grows
-beyond that, the entries are probably too granular. Minor implementation choices do not
-need a decision log entry — only decisions with a meaningful rejected alternative.
+<img src="https://api.iconify.design/material-symbols:warning.svg?color=%23F4B400" width="16" align="center" /> &nbsp; **DECISIONS.md or FAILURES.md is getting long and slow to scan.**  
+The Index section at the top should stay under 30 lines. If it grows beyond that, the entries are too granular — only log decisions with a meaningful rejected alternative.
 
-**Claude is not writing to memory files mid-session.**
-Remind it: "You need to log this to DECISIONS.md / FAILURES.md now — not at session end."
-If this keeps happening, add the project to a new session and re-read CLAUDE.md.
+<img src="https://api.iconify.design/material-symbols:warning.svg?color=%23F4B400" width="16" align="center" /> &nbsp; **Claude is not writing to memory files mid-session.**  
+Remind it: `"You need to log this to DECISIONS.md / FAILURES.md now — not at session end."` If this keeps happening, start a new session and re-read `CLAUDE.md`.
 
-**A team member's STATE.md keeps conflicting with yours.**
-STATE.md should be in .gitignore — it is personal session state. Each person has their own.
-If you want shared task tracking, use Build_Plan.md and the phase plan files instead.
+<img src="https://api.iconify.design/material-symbols:warning.svg?color=%23F4B400" width="16" align="center" /> &nbsp; **A team member's STATE.md keeps conflicting with yours.**  
+`STATE.md` should be in `.gitignore` — it is personal session state. Each person has their own. For shared task tracking, use `Build_Plan.md` and the phase plan files instead.
 
 ---
 
-## Questions
+## <img src="https://api.iconify.design/material-symbols:help.svg?color=%234285F4" width="22" align="center" /> &nbsp; Questions
+
 Read [Memory-System/README.md](./Memory-System/README.md) for the full technical design rationale.
