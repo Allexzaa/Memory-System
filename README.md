@@ -11,6 +11,7 @@
 ![Setup](https://img.shields.io/badge/setup-~10_minutes-4285F4?style=flat-square)
 ![Compatible](https://img.shields.io/badge/Claude_Code-compatible-7B2FBE?style=flat-square)
 ![Projects](https://img.shields.io/badge/any_project-no_lock--in-34A853?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-EA4335?style=flat-square)
 
 </div>
 
@@ -125,3 +126,11 @@ Remind it: `"You need to log this to DECISIONS.md / FAILURES.md now — not at s
 ## <img src="https://api.iconify.design/material-symbols:help.svg?color=%234285F4" width="22" align="center" /> &nbsp; Questions
 
 Read [Memory-System/README.md](./Memory-System/README.md) for the full technical design rationale.
+
+---
+
+## <img src="https://api.iconify.design/material-symbols:gavel.svg?color=%23757575" width="22" align="center" /> &nbsp; License
+
+Released under the [MIT License](./LICENSE) — free to use, modify, and distribute with attribution.
+
+Copyright © 2026 [Allexzaa](https://github.com/Allexzaa)
