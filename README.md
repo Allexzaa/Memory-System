@@ -19,10 +19,12 @@
 
 ## <img src="https://api.iconify.design/material-symbols:lightbulb.svg?color=%23F4B400" width="22" align="center" /> &nbsp; What this system does
 
-Claude Code forgets everything when a session ends. This system gives it structured,
-permanent memory across sessions — what was decided, what failed, what the architecture
-looks like, and what is actively being built. Claude reads the memory files at session
-start and writes to them mid-session as things happen.
+The Claude Code Memory System is a persistent project-memory framework that helps AI coding agents stay grounded, efficient, and consistent across long software builds. Instead of relying on one massive context dump, it organizes project knowledge into focused files for current state, backend architecture, frontend architecture, decisions, failures, feature plans, specs, and active tasks. The agent starts each session by reading only the highest-value summaries and indexes, then loads full details only when the task requires them. This keeps context usage lean while still preserving the project’s full reasoning trail.
+
+The system is built for real development workflows: specs come before code, phase plans require approval, decisions are logged with rejected alternatives, failures are captured with root causes, and active work stays separated from historical notes. Architecture files describe the current system only, while decision and failure logs preserve why things changed.
+
+The result is a coding agent that can navigate large projects with less token waste, fewer repeated explanations, and better factual grounding. It gives AI a practical map of the codebase, project rules, constraints, and build history, helping it answer questions, review plans, avoid stale assumptions, and work from existing facts instead of guessing during complex product development.
+
 
 ---
 

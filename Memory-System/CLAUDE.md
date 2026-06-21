@@ -47,14 +47,45 @@ MEMORY.md is supplemental. The authoritative memory for this project is the `.cl
 - One entry per failure. Required: date, what was tried, what happened, root cause, status.
 - Status values: `abandoned` | `worked-around` | `resolved` | `open`
 
+## Feedback Evaluation Rule
+Before acting on any feedback on a spec or phase plan:
+1. Check `Build_Plan.md` and `.claude/DECISIONS.md` — if the feedback belongs to a future phase, name that phase and do not add it to the current scope.
+2. Evaluate whether the feedback is practical, technically sound, consistent with the architecture, and appropriate for the active phase.
+3. Push back explicitly if it creates scope creep, conflicts with existing decisions, duplicates planned work, or introduces phase-order violations.
+4. Produce a Review Response Table in chat before touching any file. One row per comment. Columns: `Comment | Decision (Accept/Modify/Reject/Defer) | Technical reasoning | Architecture impact | Phase impact | Required doc update`. Every row must show full reasoning — especially Reject and Defer decisions. Do not edit any file until the table is visible in chat and the user can challenge it.
+5. After applying changes, append the Review Response Table to the `## Review Log` section at the bottom of the reviewed file. One entry per pass, append-only.
+
+Do not treat feedback as automatically correct. Validate first, then update.
+
 ## Spec and Phase Plan Workflow
 
+### Source Header Rule
+Every spec and phase plan must open with this block immediately after the title and status lines:
+```
+Sources:      [Arch_Spec_Final/ docs or reference files used]
+Decisions:    [D-NNN entries that apply — or — none]
+Related spec: [spec file path — or — — if this is a spec]
+Related plan: [phase plan file path — or — — if this is a phase plan]
+Scope note:   [one sentence: what this covers and what it explicitly does not]
+```
+Only list sources and decisions that were actually consulted. Missing block = spec defect.
+
+### Deferred Items Rule
+Every spec and phase plan must include a `## Deferred Items` table for anything intentionally excluded:
+```
+| Item | Moved to | Reason |
+```
+Each row is one item. `Moved to` must name the specific future feature (e.g. F004). Reason must explain why it cannot or should not be done now. Missing table = spec defect.
+
 ### Step 1 — Spec (before any code)
-- Create `Docs/F[NNN]-[slug]-spec.md`, add row to `Build_Plan.md` as `Spec Ready`
+- Create `Docs/F[NNN]-[slug]-spec.md` using `Docs/SPEC_TEMPLATE.md` as the template, add row to `Build_Plan.md` as `Spec Ready` with the spec file path in the Spec column
+- Include source header block and deferred items table
+- Include `## What Comes Next — F[NNN+1]` section before the Review Log: one paragraph on what the next feature builds on top of this one
 - Stop. Wait for explicit user approval.
 
 ### Step 2 — Phase Plan (after spec approval)
 - Create `Docs/F[NNN]-[slug]-phases.md` using `Docs/PHASE_PLAN_TEMPLATE.md`
+- Include source header block and deferred items table
 - Update `Build_Plan.md` to `Approved`
 - Stop. Wait for explicit user approval before writing any code.
 
